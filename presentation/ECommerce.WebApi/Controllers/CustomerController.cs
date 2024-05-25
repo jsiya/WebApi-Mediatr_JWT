@@ -63,4 +63,37 @@ public class CustomerController : ControllerBase
 
         return StatusCode(201);
     }
+    
+    [HttpDelete("DeleteCustomerById/{id}")]
+    public async Task<IActionResult> DeleteCustomer(int id)
+    {
+        var customer = await _readCustomerRepository.GetByIdAsync(id);
+        if (customer is null)
+            return NotFound("Customer Not Found");
+        await _writeCustomerRepository.DeleteAsync(id);
+        await _writeCustomerRepository.SaveChangeAsync();
+        return StatusCode(204);
+    }
+    
+    [HttpPut("UpdateCustomerById/{id}")]
+    public async Task<IActionResult> UpdateCustomerById(int id, [FromBody] CustomerVM customerVm)
+    {
+        var customer = await _readCustomerRepository.GetByIdAsync(id);
+        if (customer is null)
+            return NotFound("Customer Not Found");
+        
+        customer.FirstName = customerVm.FirstName;
+        customer.LastName = customerVm.LastName;
+        customer.Address = customerVm.Address;
+        customer.Email = customerVm.Email;
+        customer.Password = customerVm.Password;
+        
+        await _writeCustomerRepository.UpdateAsync(customer);
+        await _writeCustomerRepository.SaveChangeAsync();
+        
+        return Ok();
+    }
+    
+    
+    //customer with orders with products
 }

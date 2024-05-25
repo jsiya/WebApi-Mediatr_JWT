@@ -53,4 +53,31 @@ public class CategoryController : ControllerBase
 
         return Ok(allCategoryVm);
     }
+    
+    [HttpDelete("DeleteCategoryById/{id}")]
+    public async Task<IActionResult> DeleteCategory(int id)
+    {
+        var category = await _readCategoryRepository.GetByIdAsync(id);
+        if (category is null)
+            return NotFound("Category Not Found");
+        await _writeCategoryRepo.DeleteAsync(id);
+        await _writeCategoryRepo.SaveChangeAsync();
+        return StatusCode(204);
+    }
+
+    [HttpPut("UpdateCategoryById/{id}")]
+    public async Task<IActionResult> UpdateCategoryById(int id, [FromBody] AllCategoryVM categoryVM)
+    {
+        var category = await _readCategoryRepository.GetByIdAsync(id);
+        if (category is null)
+            return NotFound("Category Not Found");
+        category.Name = categoryVM.Name;
+        category.Description = categoryVM.Description;
+        category.ImageUrl = categoryVM.ImageUrl;
+        await _writeCategoryRepo.UpdateAsync(category);
+        await _writeCategoryRepo.SaveChangeAsync();
+        return Ok();
+    }
+    
+    //get category with products
 }

@@ -36,3 +36,4 @@ C:/Users/atamoghlanov_j/Desktop/ECommerce/Infrastructure/ECommerce.Persistence/o
 /Users/siyajabbarova/Downloads/ECommerce/Infrastructure/ECommerce.Persistence/obj/Debug/net8.0/ECommerce.Persistence.pdb
 /Users/siyajabbarova/Downloads/ECommerce/Infrastructure/ECommerce.Persistence/obj/Debug/net8.0/ECommerce.Persistence.genruntimeconfig.cache
 /Users/siyajabbarova/Downloads/ECommerce/Infrastructure/ECommerce.Persistence/obj/Debug/net8.0/ref/ECommerce.Persistence.dll
+/Users/siyajabbarova/Downloads/ECommerce/Infrastructure/ECommerce.Persistence/obj/Debug/net8.0/ECommerce.Persistence.sourcelink.json

@@ -79,5 +79,31 @@ public class OrderController : ControllerBase
 
         return StatusCode(201);
     }
+
+    [HttpDelete("DeleteOrderById/{id}")]
+    public async Task<IActionResult> DeleteOrder(int id)
+    {
+        var order = await _readOrderRepository.GetByIdAsync(id);
+        if (order is null)
+            return NotFound("Order Not Found");
+        await _writeOrderRepository.DeleteAsync(id);
+        await _writeOrderRepository.SaveChangeAsync();
+        return StatusCode(204);
+    }
+    
+    
+    [HttpPut("UpdateOrderById/{id}")]
+    public async Task<IActionResult> UpdateOrderById(int id, [FromBody] UpdateOrderViewModel orderVm)
+    {
+        var order = await _readOrderRepository.GetByIdAsync(id);
+        if (order is null)
+            return NotFound("Order Not Found");
+
+        order.OrderNote = orderVm.OrderNote;
+        
+        return Ok();
+    }
+
+    
     
 }

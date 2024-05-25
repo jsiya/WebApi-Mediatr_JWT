@@ -13,11 +13,13 @@ public class ProductController : ControllerBase
 {
     private readonly IReadProductRepository _readProductRepo;
     private readonly IWriteProductRepository _writeProductRepo;
+    private readonly IReadCategoryRepository _readCategoryRepository;
 
-    public ProductController(IReadProductRepository readProductRepo, IWriteProductRepository writeProductRepo)
+    public ProductController(IReadProductRepository readProductRepo, IWriteProductRepository writeProductRepo, IReadCategoryRepository readCategoryRepository)
     {
         _readProductRepo = readProductRepo;
         _writeProductRepo = writeProductRepo;
+        _readCategoryRepository = readCategoryRepository;
     }
 
     [HttpGet("AllProducts")]
@@ -61,4 +63,37 @@ public class ProductController : ControllerBase
 
         return StatusCode(201);
     }
+    
+    [HttpDelete("DeleteProductById/{id}")]
+    public async Task<IActionResult> DeleteProduct(int id)
+    {
+        var product = await _readProductRepo.GetByIdAsync(id);
+        if (product is null)
+            return NotFound("Product Not Found");
+        await _writeProductRepo.DeleteAsync(id);
+        await _writeProductRepo.SaveChangeAsync();
+        return StatusCode(204);
+    }
+    [HttpPut("UpdateProductById/{id}")]
+    public async Task<IActionResult> UpdateProductById(int id, [FromBody] AddProductVM productVm)
+    {
+        var product = await _readProductRepo.GetByIdAsync(id);
+        if (product is null)
+            return NotFound("Product Not Found");
+        
+        var category = await _readCategoryRepository.GetByIdAsync(productVm.CategoryId);
+        if (category == null)
+            return NotFound("Category Not Found");
+        
+        product.Name = productVm.Name;
+        product.Description = productVm.Description;
+        product.Stock = productVm.Stock;
+        product.Price = productVm.Price;
+        product.CategoryId = productVm.CategoryId;
+        await _writeProductRepo.UpdateAsync(product);
+        await _writeProductRepo.SaveChangeAsync();
+        
+        return Ok();
+    }
+    
 }
