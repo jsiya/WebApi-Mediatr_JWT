@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/siyajabbarova/Downloads/ECommerce/Core/ECommerce.Application/ECommerce.Application.csproj",
+      "projectUniqueName": "/Users/siyajabbarova/Desktop/ECommerce/Core/ECommerce.Application/ECommerce.Application.csproj",
       "projectName": "ECommerce.Application",
-      "projectPath": "/Users/siyajabbarova/Downloads/ECommerce/Core/ECommerce.Application/ECommerce.Application.csproj",
+      "projectPath": "/Users/siyajabbarova/Desktop/ECommerce/Core/ECommerce.Application/ECommerce.Application.csproj",
       "packagesPath": "/Users/siyajabbarova/.nuget/packages/",
-      "outputPath": "/Users/siyajabbarova/Downloads/ECommerce/Core/ECommerce.Application/obj/",
+      "outputPath": "/Users/siyajabbarova/Desktop/ECommerce/Core/ECommerce.Application/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/siyajabbarova/.nuget/NuGet/NuGet.Config"
@@ -51,8 +51,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/siyajabbarova/Downloads/ECommerce/Core/ECommerce.Domain/ECommerce.Domain.csproj": {
-              "projectPath": "/Users/siyajabbarova/Downloads/ECommerce/Core/ECommerce.Domain/ECommerce.Domain.csproj"
+            "/Users/siyajabbarova/Desktop/ECommerce/Core/ECommerce.Domain/ECommerce.Domain.csproj": {
+              "projectPath": "/Users/siyajabbarova/Desktop/ECommerce/Core/ECommerce.Domain/ECommerce.Domain.csproj"
             }
           }
         }

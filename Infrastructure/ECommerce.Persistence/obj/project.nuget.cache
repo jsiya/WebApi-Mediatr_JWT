@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lTiBMdZxrnohMIgdlQHanBALHNOd94XMlUc5S6WUFIoFLDilu0SRg5aU97cyu6X3ZDR6dLbSrobfSZNm76cplA==",
+  "dgSpecHash": "5b5MyMWPKS9aidEQV7QliOJsaSMUPON9UzsAxi0uHpTeTimz9BNxuVP4O61FiZdcjoGGv4Zyk7XaBfxqr2Putw==",
   "success": true,
-  "projectFilePath": "/Users/siyajabbarova/Downloads/ECommerce/Infrastructure/ECommerce.Persistence/ECommerce.Persistence.csproj",
+  "projectFilePath": "/Users/siyajabbarova/Desktop/ECommerce/Infrastructure/ECommerce.Persistence/ECommerce.Persistence.csproj",
   "expectedPackageFiles": [
     "/Users/siyajabbarova/.nuget/packages/azure.core/1.35.0/azure.core.1.35.0.nupkg.sha512",
     "/Users/siyajabbarova/.nuget/packages/azure.identity/1.10.3/azure.identity.1.10.3.nupkg.sha512",

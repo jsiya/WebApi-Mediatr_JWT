@@ -4579,11 +4579,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/siyajabbarova/Downloads/ECommerce/Infrastructure/ECommerce.Persistence/ECommerce.Persistence.csproj",
+      "projectUniqueName": "/Users/siyajabbarova/Desktop/ECommerce/Infrastructure/ECommerce.Persistence/ECommerce.Persistence.csproj",
       "projectName": "ECommerce.Persistence",
-      "projectPath": "/Users/siyajabbarova/Downloads/ECommerce/Infrastructure/ECommerce.Persistence/ECommerce.Persistence.csproj",
+      "projectPath": "/Users/siyajabbarova/Desktop/ECommerce/Infrastructure/ECommerce.Persistence/ECommerce.Persistence.csproj",
       "packagesPath": "/Users/siyajabbarova/.nuget/packages/",
-      "outputPath": "/Users/siyajabbarova/Downloads/ECommerce/Infrastructure/ECommerce.Persistence/obj/",
+      "outputPath": "/Users/siyajabbarova/Desktop/ECommerce/Infrastructure/ECommerce.Persistence/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/siyajabbarova/.nuget/NuGet/NuGet.Config"
@@ -4598,8 +4598,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/siyajabbarova/Downloads/ECommerce/Core/ECommerce.Application/ECommerce.Application.csproj": {
-              "projectPath": "/Users/siyajabbarova/Downloads/ECommerce/Core/ECommerce.Application/ECommerce.Application.csproj"
+            "/Users/siyajabbarova/Desktop/ECommerce/Core/ECommerce.Application/ECommerce.Application.csproj": {
+              "projectPath": "/Users/siyajabbarova/Desktop/ECommerce/Core/ECommerce.Application/ECommerce.Application.csproj"
             }
           }
         }

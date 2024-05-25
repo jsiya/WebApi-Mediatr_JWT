@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CJY8UtpKapqfQsNA68KjA3j6N1xbCK4xIcRE6q+9yfiuLPXmF6bZ9OOTd+Zatww5kyI9jctJys0a7hK3KpEBjA==",
+  "dgSpecHash": "WET2z4eszYMOfES+vQbf13ZEM1174ucm+FlZuei/nagjAiEMpviO/a9BAFCAa0YZXL+0jeJfNpbeDlBIw3sbDw==",
   "success": true,
-  "projectFilePath": "/Users/siyajabbarova/Downloads/ECommerce/Presentation/ECommerce.WebApi/ECommerce.WebApi.csproj",
+  "projectFilePath": "/Users/siyajabbarova/Desktop/ECommerce/Presentation/ECommerce.WebApi/ECommerce.WebApi.csproj",
   "expectedPackageFiles": [
     "/Users/siyajabbarova/.nuget/packages/azure.core/1.35.0/azure.core.1.35.0.nupkg.sha512",
     "/Users/siyajabbarova/.nuget/packages/azure.identity/1.10.3/azure.identity.1.10.3.nupkg.sha512",

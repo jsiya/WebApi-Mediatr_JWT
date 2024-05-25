@@ -4995,11 +4995,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/siyajabbarova/Downloads/ECommerce/presentation/ECommerce.WebApi/ECommerce.WebApi.csproj",
+      "projectUniqueName": "/Users/siyajabbarova/Desktop/ECommerce/presentation/ECommerce.WebApi/ECommerce.WebApi.csproj",
       "projectName": "ECommerce.WebApi",
-      "projectPath": "/Users/siyajabbarova/Downloads/ECommerce/presentation/ECommerce.WebApi/ECommerce.WebApi.csproj",
+      "projectPath": "/Users/siyajabbarova/Desktop/ECommerce/presentation/ECommerce.WebApi/ECommerce.WebApi.csproj",
       "packagesPath": "/Users/siyajabbarova/.nuget/packages/",
-      "outputPath": "/Users/siyajabbarova/Downloads/ECommerce/presentation/ECommerce.WebApi/obj/",
+      "outputPath": "/Users/siyajabbarova/Desktop/ECommerce/presentation/ECommerce.WebApi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/siyajabbarova/.nuget/NuGet/NuGet.Config"
@@ -5014,11 +5014,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/siyajabbarova/Downloads/ECommerce/Infrastructure/ECommerce.Infrastructure/ECommerce.Infrastructure.csproj": {
-              "projectPath": "/Users/siyajabbarova/Downloads/ECommerce/Infrastructure/ECommerce.Infrastructure/ECommerce.Infrastructure.csproj"
+            "/Users/siyajabbarova/Desktop/ECommerce/Infrastructure/ECommerce.Infrastructure/ECommerce.Infrastructure.csproj": {
+              "projectPath": "/Users/siyajabbarova/Desktop/ECommerce/Infrastructure/ECommerce.Infrastructure/ECommerce.Infrastructure.csproj"
             },
-            "/Users/siyajabbarova/Downloads/ECommerce/Infrastructure/ECommerce.Persistence/ECommerce.Persistence.csproj": {
-              "projectPath": "/Users/siyajabbarova/Downloads/ECommerce/Infrastructure/ECommerce.Persistence/ECommerce.Persistence.csproj"
+            "/Users/siyajabbarova/Desktop/ECommerce/Infrastructure/ECommerce.Persistence/ECommerce.Persistence.csproj": {
+              "projectPath": "/Users/siyajabbarova/Desktop/ECommerce/Infrastructure/ECommerce.Persistence/ECommerce.Persistence.csproj"
             }
           }
         }

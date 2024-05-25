@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/siyajabbarova/Downloads/ECommerce/Core/ECommerce.Domain/ECommerce.Domain.csproj",
+      "projectUniqueName": "/Users/siyajabbarova/Desktop/ECommerce/Core/ECommerce.Domain/ECommerce.Domain.csproj",
       "projectName": "ECommerce.Domain",
-      "projectPath": "/Users/siyajabbarova/Downloads/ECommerce/Core/ECommerce.Domain/ECommerce.Domain.csproj",
+      "projectPath": "/Users/siyajabbarova/Desktop/ECommerce/Core/ECommerce.Domain/ECommerce.Domain.csproj",
       "packagesPath": "/Users/siyajabbarova/.nuget/packages/",
-      "outputPath": "/Users/siyajabbarova/Downloads/ECommerce/Core/ECommerce.Domain/obj/",
+      "outputPath": "/Users/siyajabbarova/Desktop/ECommerce/Core/ECommerce.Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/siyajabbarova/.nuget/NuGet/NuGet.Config"
