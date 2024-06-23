@@ -1,6 +1,8 @@
 ﻿using ECommerce.Application.Repositories;
+using ECommerce.Application.Services;
 using ECommerce.Persistence.DbContexts;
 using ECommerce.Persistence.Repositories;
+using ECommerce.Persistence.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,5 +36,11 @@ public static class RegisterServices
         services.AddScoped<IWriteCustomerRepository, WriteCustomerRepository>();
         services.AddScoped<IWriteProductRepository, WriteProductRepository>();
         services.AddScoped<IWriteCategoryRepository, WriteCategoryRepository>();
+        
+        //All Services
+        services.AddScoped<ICategoryService, CategoryService>();
+        services.AddScoped<ICustomerService, CustomerService>();
+        services.AddScoped<IOrderService, OrderService>();
+        services.AddScoped<IProductService, ProductService>();
     }
 }

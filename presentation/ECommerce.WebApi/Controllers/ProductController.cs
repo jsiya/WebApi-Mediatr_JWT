@@ -4,6 +4,7 @@ using ECommerce.Domain.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Storage.Json;
 using System.Text.Json;
+using ECommerce.Application.Services;
 
 namespace ECommerce.WebApi.Controllers;
 
@@ -11,34 +12,17 @@ namespace ECommerce.WebApi.Controllers;
 [ApiController]
 public class ProductController : ControllerBase
 {
-    private readonly IReadProductRepository _readProductRepo;
-    private readonly IWriteProductRepository _writeProductRepo;
-    private readonly IReadCategoryRepository _readCategoryRepository;
+    private readonly IProductService _productService;
 
-    public ProductController(IReadProductRepository readProductRepo, IWriteProductRepository writeProductRepo, IReadCategoryRepository readCategoryRepository)
+    public ProductController(IProductService productService)
     {
-        _readProductRepo = readProductRepo;
-        _writeProductRepo = writeProductRepo;
-        _readCategoryRepository = readCategoryRepository;
+        _productService = productService;
     }
 
     [HttpGet("AllProducts")]
     public async Task<IActionResult> GetAll([FromQuery]PaginationVM paginationVM)
     {
-        var products = await _readProductRepo.GetAllAsync();
-        var prodcutForPage = products.ToList().
-                    Skip(paginationVM.Page*paginationVM.PageSize).Take(paginationVM.PageSize).ToList();
-
-
-        var allProductVm = prodcutForPage.Select(p => new AllProductVM()
-        {
-            Name = p.Name,
-            Price = p.Price,
-            Description = p.Description,
-            CategoryName = p.Category.Name,
-            ImageUrl = p.ImageUrl,
-            Stock = p.Stock
-        }).ToList();
+        var allProductVm = await _productService.GetAllProductsAsync(paginationVM);
 
         return Ok(allProductVm);
     }
@@ -48,52 +32,26 @@ public class ProductController : ControllerBase
     {
         if(!ModelState.IsValid)
             return BadRequest(ModelState);
-
-        var product = new Product()
-        {
-            Name = productVM.Name,
-            Price = productVM.Price,
-            Description = productVM.Description,
-            CategoryId = productVM.CategoryId,
-            Stock = productVM.Stock,
-        };
-
-        await _writeProductRepo.AddAsync(product);
-        await _writeProductRepo.SaveChangeAsync();
-
+        
+        
+        _productService.AddProductAsync(productVM);
         return StatusCode(201);
     }
     
     [HttpDelete("DeleteProductById/{id}")]
     public async Task<IActionResult> DeleteProduct(int id)
     {
-        var product = await _readProductRepo.GetByIdAsync(id);
-        if (product is null)
-            return NotFound("Product Not Found");
-        await _writeProductRepo.DeleteAsync(id);
-        await _writeProductRepo.SaveChangeAsync();
-        return StatusCode(204);
+        if(await _productService.DeleteProductAsync(id))
+            return StatusCode(204);
+        return NotFound("Product Not Found");
     }
+    
     [HttpPut("UpdateProductById/{id}")]
     public async Task<IActionResult> UpdateProductById(int id, [FromBody] AddProductVM productVm)
     {
-        var product = await _readProductRepo.GetByIdAsync(id);
-        if (product is null)
-            return NotFound("Product Not Found");
-        
-        var category = await _readCategoryRepository.GetByIdAsync(productVm.CategoryId);
-        if (category == null)
-            return NotFound("Category Not Found");
-        
-        product.Name = productVm.Name;
-        product.Description = productVm.Description;
-        product.Stock = productVm.Stock;
-        product.Price = productVm.Price;
-        product.CategoryId = productVm.CategoryId;
-        await _writeProductRepo.UpdateAsync(product);
-        await _writeProductRepo.SaveChangeAsync();
-        
-        return Ok();
+        var result = await _productService.UpdateProductAsync(id, productVm);
+
+        return StatusCode((int)result);
     }
     
 }

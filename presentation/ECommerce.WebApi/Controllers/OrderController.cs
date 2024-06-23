@@ -1,4 +1,5 @@
 ﻿using ECommerce.Application.Repositories;
+using ECommerce.Application.Services;
 using ECommerce.Domain.Entities.Concretes;
 using ECommerce.Domain.ViewModels;
 using ECommerce.Domain.ViewModels.OrderViewModels;
@@ -10,98 +11,41 @@ namespace ECommerce.WebApi.Controllers;
 [ApiController]
 public class OrderController : ControllerBase
 {
-    private readonly IReadOrderRepository _readOrderRepository;
-    private readonly IWriteOrderRepository _writeOrderRepository;
-    private readonly IReadProductRepository _productRepository;
+    private readonly IOrderService _orderService;
 
-    public OrderController(IReadOrderRepository readOrderRepository, IWriteOrderRepository writeOrderRepository, IReadProductRepository productRepository)
+    public OrderController(IOrderService orderService)
     {
-        _readOrderRepository = readOrderRepository;
-        _writeOrderRepository = writeOrderRepository;
-        _productRepository = productRepository;
+        _orderService = orderService;
     }
 
     [HttpGet("GetAllOrders")]
     public async Task<IActionResult> GettAll([FromQuery] PaginationVM paginationVM)
     {
-        var orders = await _readOrderRepository.GetAllAsync();
-        var orderForPage = orders.ToList().
-            Skip(paginationVM.Page * paginationVM.PageSize).
-            Take(paginationVM.PageSize).
-            ToList();
-
-        var allOrdersVm = orderForPage.Select(o => new AllOrderVM()
-        {
-            CustomerEmail = o.Customer.Email,
-            OrderDate = o.OrderDate,
-            OrderNote = o.OrderNote,
-            OrderNumber = o.OrderNumber,
-            Total = o.Total
-        }).ToList();
+        var allOrdersVm = await _orderService.GetAllOrdersAsync(paginationVM);
         return Ok(allOrdersVm);
     }
-
-
+    
     [HttpPost("AddOrder")]
     public async Task<IActionResult> AddOrder([FromQuery] AddOrderVM orderVm)
     {
-        if (!ModelState.IsValid)
-        {
+        if (!ModelState.IsValid || await _orderService.AddOrderAsync(orderVm) == false)
             return BadRequest(ModelState);
-        }
-
-        var order = new Order()
-        {
-            CustomerId = orderVm.CustomerId,
-            OrderDate = DateTime.Now,
-            OrderNote = orderVm.OrderNote,
-            OrderNumber = orderVm.OrderNumber
-        };
-
-        foreach (var productVM in orderVm.Products)
-        {
-            var product = await _productRepository.GetByIdAsync(productVM.ProductId);
-            if (product is null)
-            {
-                ModelState.AddModelError("Products", $"Product with ID {productVM.ProductId} not found.");
-                return BadRequest(ModelState);
-            }
-
-            product.Stock -= productVM.Quantity;
-            order.Products.Add(product);
-
-            // Calculate total price
-            order.Total += product.Price * productVM.Quantity;
-        }
-        
-        await _writeOrderRepository.AddAsync(order);
-        await _writeOrderRepository.SaveChangeAsync();
-
         return StatusCode(201);
     }
 
     [HttpDelete("DeleteOrderById/{id}")]
     public async Task<IActionResult> DeleteOrder(int id)
     {
-        var order = await _readOrderRepository.GetByIdAsync(id);
-        if (order is null)
-            return NotFound("Order Not Found");
-        await _writeOrderRepository.DeleteAsync(id);
-        await _writeOrderRepository.SaveChangeAsync();
-        return StatusCode(204);
+        if(await _orderService.DeleteOrderAsync(id))
+            return StatusCode(204);
+        return NotFound("Order Not Found!");
     }
     
     
     [HttpPut("UpdateOrderById/{id}")]
     public async Task<IActionResult> UpdateOrderById(int id, [FromBody] UpdateOrderViewModel orderVm)
     {
-        var order = await _readOrderRepository.GetByIdAsync(id);
-        if (order is null)
-            return NotFound("Order Not Found");
-
-        order.OrderNote = orderVm.OrderNote;
-        
-        return Ok();
+        return StatusCode((int)await _orderService.UpdateOrderById(id, orderVm));
     }
 
     
