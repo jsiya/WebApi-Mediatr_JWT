@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WET2z4eszYMOfES+vQbf13ZEM1174ucm+FlZuei/nagjAiEMpviO/a9BAFCAa0YZXL+0jeJfNpbeDlBIw3sbDw==",
+  "dgSpecHash": "jvPqFcF83Q1Ju+NEqlRBJ1QeKTghOfEqjx/72jasiZUVh01k9j04Zrhin9fKxqcxNJBxVOX9hqByt1sZjZ7+/A==",
   "success": true,
   "projectFilePath": "/Users/siyajabbarova/Desktop/ECommerce/Presentation/ECommerce.WebApi/ECommerce.WebApi.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,8 @@
     "/Users/siyajabbarova/.nuget/packages/azure.identity/1.10.3/azure.identity.1.10.3.nupkg.sha512",
     "/Users/siyajabbarova/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",
     "/Users/siyajabbarova/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/Users/siyajabbarova/.nuget/packages/mediatr/12.3.0/mediatr.12.3.0.nupkg.sha512",
+    "/Users/siyajabbarova/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
     "/Users/siyajabbarova/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "/Users/siyajabbarova/.nuget/packages/microsoft.codeanalysis.analyzers/3.3.3/microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
     "/Users/siyajabbarova/.nuget/packages/microsoft.codeanalysis.common/4.5.0/microsoft.codeanalysis.common.4.5.0.nupkg.sha512",

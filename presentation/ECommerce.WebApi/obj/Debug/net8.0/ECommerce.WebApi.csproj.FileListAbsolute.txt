@@ -438,3 +438,5 @@ C:/Users/atamoghlanov_j/Desktop/ECommerce/Presentation/ECommerce.WebApi/bin/Debu
 /Users/siyajabbarova/Desktop/ECommerce/presentation/ECommerce.WebApi/obj/Debug/net8.0/ECommerce.WebApi.pdb
 /Users/siyajabbarova/Desktop/ECommerce/Presentation/ECommerce.WebApi/obj/Debug/net8.0/ECommerce.WebApi.genruntimeconfig.cache
 /Users/siyajabbarova/Desktop/ECommerce/Presentation/ECommerce.WebApi/obj/Debug/net8.0/ref/ECommerce.WebApi.dll
+/Users/siyajabbarova/Desktop/ECommerce/presentation/ECommerce.WebApi/bin/Debug/net8.0/MediatR.dll
+/Users/siyajabbarova/Desktop/ECommerce/presentation/ECommerce.WebApi/bin/Debug/net8.0/MediatR.Contracts.dll

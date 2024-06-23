@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "EFPeDLW/kwc23L25qCxjnd0ZBLe6+u2pEXIK1lztTkfhrcQxY/ckvYUWrfdUixwjNYC+apbJgtqNEzNjs3B5zA==",
+  "dgSpecHash": "xmIEY2FLXL2xzFaL7Kz3a+lLEHbVmDk+debsplaQ8VcwS7WnkOX/8hb8j/gwhX3g8/RM3aJ6YvtbQ+z76WNO4Q==",
   "success": true,
   "projectFilePath": "/Users/siyajabbarova/Desktop/ECommerce/Infrastructure/ECommerce.Infrastructure/ECommerce.Infrastructure.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/siyajabbarova/.nuget/packages/mediatr/12.3.0/mediatr.12.3.0.nupkg.sha512",
+    "/Users/siyajabbarova/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
+    "/Users/siyajabbarova/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

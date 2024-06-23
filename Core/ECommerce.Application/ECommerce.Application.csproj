@@ -10,4 +10,18 @@
     <ProjectReference Include="..\ECommerce.Domain\ECommerce.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Behaviours\Commands\Category\" />
+    <Folder Include="Behaviours\Commands\Customer\" />
+    <Folder Include="Behaviours\Commands\Order\" />
+    <Folder Include="Behaviours\Commands\Product\" />
+    <Folder Include="Behaviours\Queries\Category\" />
+    <Folder Include="Behaviours\Queries\Customer\" />
+    <Folder Include="Behaviours\Queries\Order\" />
+  </ItemGroup>
+
 </Project>

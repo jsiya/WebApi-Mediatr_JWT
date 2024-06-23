@@ -4,7 +4,9 @@ using ECommerce.Domain.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Storage.Json;
 using System.Text.Json;
+using ECommerce.Application.Behaviours.Queries.Product.GetAll;
 using ECommerce.Application.Services;
+using MediatR;
 
 namespace ECommerce.WebApi.Controllers;
 
@@ -13,18 +15,27 @@ namespace ECommerce.WebApi.Controllers;
 public class ProductController : ControllerBase
 {
     private readonly IProductService _productService;
+    private readonly IMediator _mediator;
 
-    public ProductController(IProductService productService)
+    public ProductController(IProductService productService, IMediator mediator)
     {
         _productService = productService;
+        _mediator = mediator;
     }
 
+    // [HttpGet("AllProducts")]
+    // public async Task<IActionResult> GetAll([FromQuery]PaginationVM paginationVM)
+    // {
+    //     var allProductVm = await _productService.GetAllProductsAsync(paginationVM);
+    //
+    //     return Ok(allProductVm);
+    // }
+    
     [HttpGet("AllProducts")]
-    public async Task<IActionResult> GetAll([FromQuery]PaginationVM paginationVM)
+    public async Task<IActionResult> GetAll([FromQuery] GetAllProductQueryRequest request)
     {
-        var allProductVm = await _productService.GetAllProductsAsync(paginationVM);
-
-        return Ok(allProductVm);
+        GetAllProductQueryResponse? response = await _mediator.Send(request);
+        return response.Products.Count == 0 ? NotFound("Product Not Found") : Ok(response.Products);
     }
 
     [HttpPost("AddProduct")]
