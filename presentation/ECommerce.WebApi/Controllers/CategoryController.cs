@@ -10,14 +10,11 @@ namespace ECommerce.WebApi.Controllers;
 [ApiController]
 public class CategoryController : ControllerBase
 {
-    private readonly IWriteCategoryRepository _writeCategoryRepo;
-    private readonly IReadCategoryRepository _readCategoryRepository;
     private readonly ICategoryService _categoryService;
 
-    public CategoryController(IWriteCategoryRepository writeCategoryRepo, IReadCategoryRepository readCategoryRepository)
+    public CategoryController(IWriteCategoryRepository writeCategoryRepo, IReadCategoryRepository readCategoryRepository, ICategoryService categoryService)
     {
-        _writeCategoryRepo = writeCategoryRepo;
-        _readCategoryRepository = readCategoryRepository;
+        _categoryService = categoryService;
     }
 
     [HttpPost("AddCategory")]
